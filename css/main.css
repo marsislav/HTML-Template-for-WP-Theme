@@ -1,0 +1,831 @@
+/* Variables*/
+:root {
+    --mainRed: #be1522;
+}
+/*/ Variables*/
+/*Normalization*/
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    word-break: break-word;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+}
+
+li a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    margin: -5px 0;
+    background-color: var(--mainRed);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.4s ease-in-out 0s;
+}
+
+li a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+/*/Normalization*/
+.top {
+    margin: 5px 0;
+}
+.mobileLogo{
+    display: none;
+}
+/**/
+.border:after {
+    content: "";
+    display: block;
+    width: 300%;
+    height: 1px;
+    border-bottom: 1px solid #f1f1f1;
+    margin-left: -100%;
+    margin-bottom: 40px;
+}
+
+.subMenu, .mainMenu {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.submenu {
+    position: relative;
+    margin-left: 30px;
+}
+
+ul.subMenu li {
+    position: relative;
+    left: 50px;
+    top: 15px;
+    margin-right: 20px;
+}
+
+ul.subMenu li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #5f5f5f;
+
+}
+
+ul.mainMenu li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.mainMenu li {
+    margin-right: 40px;
+}
+
+.mainMenu li:last-child {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.mainMenu li:last-child a {
+    color: #fff;
+    background: var(--mainRed);
+    padding: 20px 35px;
+    transition: 0.3s all;
+}
+
+.mainMenu li:last-child a:hover {
+    background: #f00;
+}
+
+.mainMenu li:last-child a:hover:before {
+    visibility: hidden;
+    transform: scaleX(0);
+}
+
+/**/
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+/* =======================
+#Slideshow
+======================= */
+.slideshow {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 50px;
+    border-top: 3px solid var(--mainRed);
+    position: relative;
+}
+
+/* #Slider */
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    width: calc(100% * 5);
+    height: 100%;
+    position: relative;
+    left: -100%;
+}
+
+.slides__img {
+    width: calc(100% / 5);
+    height: 100%;
+    float: left;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.slides__img__filter {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0.3;
+}
+
+/* #Captions */
+.slide__caption {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    bottom: 5%;
+    z-index: 20;
+    opacity: 0
+}
+
+.slide__caption__title {
+    font-size: 3.8em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase
+}
+
+.slide__caption__subtitle {
+    font-size: 2.8em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    text-transform: uppercase
+}
+
+.slide__caption__text {
+    font-size: 2.5em;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    padding: 40px 0;
+    background-color: var(--mainRed);
+    color: #fff;
+}
+
+/* #Controls */
+a.control {
+    cursor: pointer;
+    position: absolute;
+    z-index: 20;
+    top: calc(50% - 50px);
+    padding: 15px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 2.5em;
+    transition: 0.3s all;
+}
+
+.control:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+#next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+
+/* ########################
+Media Queries
+######################## */
+
+/* ------------------------
+#Desktop, iPad Pro
+------------------------ */
+@media only screen and (min-width: 1024px) and (max-width: 1170px) {
+
+}
+
+/* ------------------------
+#Display 12", iPad Pro portrait, iPad landscape
+------------------------ */
+@media only screen and (max-width: 1024px) {
+
+}
+
+/* ------------------------
+#Medium Devices, Desktops
+------------------------ */
+@media only screen and (max-width: 992px) {
+
+    /* #Captions */
+    .slide__caption__title {
+        font-size: 2.5em;
+        line-height: 1.125em;
+    }
+
+    .slide__caption__subtitle {
+        font-size: 2em;
+    }
+
+    /* #Controls */
+    .prev,
+    .next {
+        font-size: 2.5em;
+    }
+
+}
+
+/* ------------------------
+#Display 5.5", iPad portrait, iPhone 6, 6s, 7, 8 portrait and landscape, iPhone 5s landscape
+------------------------ */
+@media only screen and (max-width: 768px) {
+
+    /* #Captions */
+    .slide__caption__subtitle {
+        font-size: 1.625em;
+    }
+
+    .slide__caption__text {
+        font-size: 1.5em;
+    }
+
+}
+
+/* ------------------------
+#Extra Small Devices, Phones
+------------------------ */
+@media only screen and (max-width: 480px) {
+
+    /* #Captions */
+    .slide__caption__title {
+        font-size: 2em;
+        line-height: 1.25em;
+    }
+
+    .slide__caption__subtitle {
+        line-height: 1.15384615em;
+    }
+
+    .slide__caption__text {
+        font-size: 1.375em;
+        line-height: 1.13636364em;
+    }
+
+    /* #Controls */
+    .prev,
+    .next {
+        font-size: 30px;
+    }
+
+}
+
+/* ------------------------
+#Display 4", iPhone 5s portrait
+------------------------ */
+@media only screen and (max-width: 320px) {
+
+    /* #Controls */
+    .prev,
+    .next {
+        font-size: 1.5em;
+    }
+
+}
+
+
+/* =======================
+#Hacks & Fixes
+======================= */
+/* Clearfix Hack*/
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+/* IE6 */
+* html .clearfix {
+    zoom: 1;
+}
+
+/* IE7 */
+*:first-child + html .clearfix {
+    zoom: 1;
+}
+
+/* Box Size Hack */
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*Carousel*/
+.resource {
+    text-align: center;
+}
+
+.carouselSection p.person {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 27px;
+}
+
+.carouselSection p.person span {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 27px;
+    display: block;
+    color: #636262;
+
+}
+
+#resource-slider {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 13em;
+}
+
+#resource-slider .arrow {
+    cursor: pointer;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 45px;
+}
+
+
+#resource-slider .prev {
+    left: -35px;
+    bottom: 0;
+}
+
+#resource-slider .next {
+    right: -35px;
+    bottom: 0;
+}
+
+#resource-slider .resource-slider-frame {
+    position: absolute;
+    top: 0;
+    left: 2em;
+    right: 2em;
+    bottom: 0;
+    border-left: 0.25em solid transparent;
+    border-right: 0.25em solid transparent;
+    overflow: hidden;
+}
+
+#resource-slider .resource-slider-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#resource-slider .resource-slider-inset {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0.5em 0.25em;
+    overflow: hidden;
+}
+
+#resource-slider .resource-slider-item {
+    width: 100%;
+}
+
+#resource-slider {
+    margin-bottom: 40px;
+}
+
+/*/ Carousel*/
+/* Main */
+.intro {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.intro p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.intro a.readMore {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border: 1px solid var(--mainRed);
+    padding: 18px 35px;
+    color: var(--mainRed);
+    text-transform: uppercase;
+    margin: 45px 0 80px 0;
+    display: inline-block;
+    transition: 0.3s all;
+}
+
+.intro a.readMore:hover {
+    color: #f00;
+    border-color: #f00;
+}
+
+/*Images hover effect*/
+
+.zoom-effect-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.sndRow{
+    margin-top:25px;
+}
+.zoom-effect-container.sndRow {
+    height: 235px;
+}
+
+
+.image-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.image-card img {
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+
+.zoom-effect-container:hover .image-card img {
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+}
+
+.servicesDescription {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 15px;
+    padding: 0 18px;
+}
+
+.servicesDescription span {
+    display: block;
+}
+
+.sndLogo {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.slogan {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--mainRed);
+}
+
+.slogan span.readMore {
+    background: var(--mainRed);
+    color: #fff;
+    padding: 10px 24px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/*/Images hover effect*/
+
+.findUs p.title {
+    text-transform: uppercase;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--mainRed);
+    text-align: center;
+}
+
+.findUs p.description {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+}
+
+.findUs .contactIconsParent {
+    max-width: 830px;
+    margin:0 auto;
+}
+
+.contactUs .contactIconsParent img {
+    transition: 0.70s;
+    -moz-transition: 0.70s;
+    width: 250px;
+    height: 150px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.contactIconsParent img:hover {
+    transition: 0.70s;
+    -moz-transition: 0.70s;
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.contactIconsParent img {
+    display:block;
+    margin:0 auto;
+}
+.contactIconsParent .iconDescription {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #000;
+    line-height: 27px;
+    text-align: center;
+
+}
+
+
+.carouselSection > img:first-of-type {
+    width: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+.carouselSection > p:first-of-type {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+.carouselSection p {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+}
+
+/*Bottom menu*/
+.bottomMenu {
+    background: #efefef;
+    padding: 50px 0;
+}
+
+
+.columnOne {
+    grid-area: 1 / 1 / 2 / 2;
+    position: relative;
+}
+
+.columnTwo {
+    grid-area: 1 / 2 / 2 / 3;
+    position: relative;
+}
+
+.columnThree {
+    grid-area: 1 / 3 / 2 / 4;
+    position: relative;
+}
+
+.bottomMenu .logo {
+    width: 110px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.btmMenu p{
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 28px;
+}
+.columnOne ul {
+    position:absolute;
+    bottom:0px;
+}
+.columnOne ul li{
+    display:inline-block;
+    margin-left:15px;
+}
+.columnOne li  img {
+    max-height:50px;
+    width:auto;
+    vertical-align: middle;
+}
+
+.columnOne ul a:before{
+    display:none;
+}
+.columnTwo .title, .columnThree .title  {
+    font-family: Montserrat, sans-serif;
+    font-size:18px;
+    font-weight:700;
+    text-transform: uppercase;
+    color:var(--mainRed);
+    margin-bottom: 60px;
+
+}
+.columnTwo .subTitle{
+    font-family: Montserrat, sans-serif;
+    font-size:16px;
+    font-weight:600;
+    text-transform: uppercase;
+    line-height:24px;
+
+}
+.address{
+    margin-top:-10px;
+}
+.address i {
+    font-size: 20px;
+    vertical-align: middle;
+    color:#C42F3A;
+    margin-right:15px;
+}
+
+/*/ Bottom menu*/
+/*/Main*/
+footer {
+    background: var(--mainRed);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/*responsive*/
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";  display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+/************
+ ** LAYOUT **
+ ************/
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+
+
+
+#topbar-menu-icon{
+    display: none;
+}
+/*Responsive*/
+@media only screen and (max-width: 1080px) {
+     #topbar-menu-icon {
+         font-size: 40px;
+         display: block;
+         float: right;
+         clear: both;
+         margin-top: -48px;
+         color:var(--mainRed);
+    }
+
+    .navs ul {
+        display:block;
+
+    }
+    ul.navs {
+        text-align: center;
+    border-top:2px solid var(--mainRed);
+    }
+    ul.navs img {display:none;}
+    ul.navs li a {
+        color: #000;
+        font-size: 22px;
+        line-height:40px;
+        padding:0 30px;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+    }
+    ul.subMenu li {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-right: 20px;
+    }
+    .border:after {
+        margin-top:15px;
+        margin-bottom:15px;
+        border-bottom: 1px solid #cecece;
+    }
+    .mainMenu li:last-child {
+        margin-top: 10px;
+        margin-bottom:20px;
+    }
+    .mainMenu li:last-child a {
+        padding: 10px 17px;
+    }
+    .mobileLogo {
+        display:block!important;
+    }
+    .slideshow {
+        margin-top:0;
+    }
+    .container {
+        padding:0 5px;
+    }
+}
+@media only screen and (max-width: 1240px) {
+    #resource-slider .prev {
+        left:0;
+    }
+    #resource-slider .next {
+        right:0
+    }
+
+}
+
+
+
+
+
+
+
+/*/Responsive*/
