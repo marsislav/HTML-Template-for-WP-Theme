@@ -1,20 +1,14 @@
 /*Slider*/
-$(document).ready(function() {
-    //==================================
-    // #Slideshow with jQuery
-    //==================================
-
+$(document).ready(function () {
     // id generator
     function idGenerator() {
-        $(".slides__img").each(function(index, el) {
+        $(".slides__img").each(function (index, el) {
             $(this).attr("id", "slide_" + index);
         });
 
     }
 
     // id extractor
-    // at the end it focuses the current dot
-
 
     // slide up caption
     function captionSlideUp(d, e) {
@@ -70,7 +64,7 @@ $(document).ready(function() {
             {
                 duration: d,
                 easing: e,
-                complete: function() {
+                complete: function () {
                     $slides.css("left", "-100%");
                     slideMove(t);
                     captionSlideUp(1700, "swing");
@@ -79,14 +73,13 @@ $(document).ready(function() {
         );
     }
 
-
     // slideshow
     function slideShow(d, e) {
-        $("#prev").click(function() {
+        $("#prev").click(function () {
             var t = $(this).attr("id");
             slideIt("0%", d, e, t);
         });
-        $("#next").click(function() {
+        $("#next").click(function () {
             var t = $(this).attr("id");
             slideIt("-200%", d, e, t);
         });
@@ -102,22 +95,22 @@ function defer(method) {
     if (window.jQuery)
         method();
     else
-        setTimeout(function() {
+        setTimeout(function () {
             defer(method)
         }, 50);
 }
-defer(function() {
-    (function($) {
+
+defer(function () {
+    (function ($) {
 
         function doneResizing() {
             var totalScroll = $('.resource-slider-frame').scrollLeft();
             var itemWidth = $('.resource-slider-item').width();
             var difference = totalScroll % itemWidth;
-            if ( difference !== 0 ) {
+            if (difference !== 0) {
                 $('.resource-slider-frame').animate({
                     scrollLeft: '-=' + difference
-                }, 500, function() {
-                    // check arrows
+                }, 500, function () {
                     checkArrows();
                 });
             }
@@ -129,44 +122,42 @@ defer(function() {
             var itemWidth = $('.resource-slider-item').width();
             var totalScroll = $('.resource-slider-frame').scrollLeft();
 
-            if ( ((totalWidth - frameWidth) - totalScroll) < itemWidth ) {
+            if (((totalWidth - frameWidth) - totalScroll) < itemWidth) {
                 $(".next").css("color", "#c6c6c6");
-            }
-            else {
+            } else {
                 $(".next").css("color", "#000");
             }
-            if ( totalScroll < itemWidth ) {
+            if (totalScroll < itemWidth) {
                 $(".prev").css("color", "#c6c6c6");
-            }
-            else {
+            } else {
                 $(".prev").css("color", "black");
             }
         }
 
-        $('.arrow').on('click', function() {
+        $('.arrow').on('click', function () {
             var $this = $(this),
                 width = $('.resource-slider-item').width(),
                 speed = 500;
             if ($this.hasClass('prev')) {
                 $('.resource-slider-frame').animate({
                     scrollLeft: '-=' + width
-                }, speed, function() {
+                }, speed, function () {
                     // check arrows
                     checkArrows();
                 });
             } else if ($this.hasClass('next')) {
                 $('.resource-slider-frame').animate({
                     scrollLeft: '+=' + width
-                }, speed, function() {
+                }, speed, function () {
                     // check arrows
                     checkArrows();
                 });
             }
         }); // end on arrow click
 
-        $(window).on("load resize", function() {
+        $(window).on("load resize", function () {
             checkArrows();
-            $('#resource-slider .resource-slider-item').each(function(i) {
+            $('#resource-slider .resource-slider-item').each(function (i) {
                 var $this = $(this),
                     left = $this.width() * i;
                 $this.css({
@@ -176,7 +167,7 @@ defer(function() {
         }); // end window resize/load
 
         var resizeId;
-        $(window).resize(function() {
+        $(window).resize(function () {
             clearTimeout(resizeId);
             resizeId = setTimeout(doneResizing, 500);
         });
@@ -184,34 +175,32 @@ defer(function() {
     })(jQuery); // end function
 });
 /*Responsive menu*/
-$(function() {
+$(function () {
 
     // dislay or hide the menu if the user resize the window
-    $(window).resize(function() {
+    $(window).resize(function () {
         var width = $(window).width();
         if (width <= 1080) {
-            $('.navs').css({'display':'none'});
+            $('.navs').css({'display': 'none'});
             $('#topbar-menu-icon').removeClass('fa-times');
             $('#topbar-menu-icon').addClass('fa-bars');
-        }
-        else {
-            $('.navs').css({'display':'block'});
+        } else {
+            $('.navs').css({'display': 'block'});
             $('#topbar-menu-icon').removeClass('fa-bars');
             $('#topbar-menu-icon').addClass('fa-times');
         }
     });
 
     // Change the menu icon, and show or hide the menu
-    $('#topbar-menu-icon').click(function(){
+    $('#topbar-menu-icon').click(function () {
         if ($('.navs').css('display') == 'none') {
-            $('.navs').css({'display':'block'});
+            $('.navs').css({'display': 'block'});
 
             $('#topbar-menu-icon').removeClass('fa-bars');
             $('#topbar-menu-icon').addClass('fa-times');
 
-        }
-        else {
-            $('.navs').css({'display':'none'});
+        } else {
+            $('.navs').css({'display': 'none'});
             $('#topbar-menu-icon').removeClass('fa-times');
             $('#topbar-menu-icon').addClass('fa-bars');
 
